@@ -1,14 +1,14 @@
-# Component index — 144 free MotionSites prompts
+# Component index — 144 free MotionSites prompts
 
 Every free prompt on motionsites.ai, tagged with the motion techniques its spec actually
 demonstrates. Use this two ways:
 
-1. **"Which reference case teaches X?"** —  jump to the reverse lookup below.
-2. **"What does prompt Y contain?"** —  find it in the full table.
+1. **"Which reference case teaches X?"** → jump to the reverse lookup below.
+2. **"What does prompt Y contain?"** → find it in the full table.
 
-Each row corresponds to `https://motionsites.ai` —  the card with that title —  *Copy prompt*.
+Each row corresponds to `https://motionsites.ai` → the card with that title → *Copy prompt*.
 
-## Reverse lookup — technique —  best reference cases
+## Reverse lookup — technique → best reference cases
 
 | Technique | Count | Reference cases (richest first) |
 | --- | --- | --- |
@@ -49,8 +49,8 @@ Each row corresponds to `https://motionsites.ai` —  the card with that title 
 | --- | --- | --- | --- | --- | --- |
 | 3d-collectible-hero | 3D Collectible Hero | 3D Website | 3D Website | 5347 | infinite-carousel |
 | 404-planet | 404 Planet | 404 | 404 | 7598 | video-bg, liquid-glass, mobile-drawer |
-| axion-about | Axion About | About | about | 4393 | — |
-| launchex-about | LaunchEx About | About | about | 6908 | — |
+| axion-about | Axion About | About | about | 4393 | — |
+| launchex-about | LaunchEx About | About | about | 6908 | — |
 | orbis-hello | Orbis Hello | About | about | 5232 | video-bg |
 | portfolio-about | Portfolio About | About | about | 5431 | char-scrub-text, framer-motion |
 | tech-noir-about | Tech-Noir About | About | about | 3555 | video-bg, framer-motion |
@@ -69,21 +69,21 @@ Each row corresponds to `https://motionsites.ai` —  the card with that title 
 | halo-use-case | Halo Use Case | Use Case | features | 7044 | video-bg, liquid-glass |
 | max-reed-portfolio | Max Reed Portfolio | Features | features | 5397 | video-bg, marquee, liquid-glass |
 | nexacore-control | NexaCore Control | Features | features | 8666 | video-bg |
-| nexacore-results | NexaCore Results | Features | features | 9261 | — |
+| nexacore-results | NexaCore Results | Features | features | 9261 | — |
 | nike-hover | Nike Hover | Features | features | 13726 | video-bg, spotlight-mask, gsap, liquid-glass |
 | task-engine | Task Engine | SaaS | features | 14503 | reduced-motion |
 | haul-footer | HAUL! | Footer Section | footer | 4329 | parallax, framer-motion, liquid-glass |
 | kresna-footer | Kresna Footer | Footer Section | footer | 9163 | video-bg |
 | lumina-footer | Lumina | Footer Section | footer | 5113 | framer-motion, liquid-glass |
-| stark-minimal-footer | Stark Minimal Footer | Footer | footer | 5437 | — |
+| stark-minimal-footer | Stark Minimal Footer | Footer | footer | 5437 | — |
 | vize-footer | Vize Footer | Footer Section | footer | 7734 | scroll-reveal, framer-motion, liquid-glass |
 | 3d-jack-portfolio-hero | 3D Jack Portfolio | Portfolio | hero | 13877 | scroll-reveal, char-scrub-text, marquee, magnetic-hover, framer-motion |
 | 404 | Nexto 404 | 404 | hero | 5689 | mobile-drawer |
 | adhd-planner | ADHD Planner | App | hero | 8810 | video-bg, scroll-reveal, liquid-glass, mobile-drawer |
-| aethera-hero | Aethera Studio | Hero Section | hero | 3169 | — |
+| aethera-hero | Aethera Studio | Hero Section | hero | 3169 | — |
 | aetheris-voyage-hero | Aetheris Voyage | Hero Section | hero | 10190 | video-bg, scroll-reveal, word-stagger, blur-fade, framer-motion, liquid-glass |
 | agent-grove | Agent Grove | SaaS | hero | 7959 | video-bg, liquid-glass, mobile-drawer |
-| ai-image-generator-ui | AI Image Generator UI | AI | hero | 4480 | — |
+| ai-image-generator-ui | AI Image Generator UI | AI | hero | 4480 | — |
 | ai-runtime | AI Runtime | AI | hero | 9593 | video-bg, scroll-reveal, counter, mobile-drawer, reduced-motion |
 | ai-trip-planner | AI Trip Planner | Travel | hero | 6398 | video-bg, typewriter, liquid-glass |
 | ai-workflow | AI Workflow Hero | Hero | hero | 16580 | canvas-raf, liquid-glass, mobile-drawer |
@@ -111,7 +111,7 @@ Each row corresponds to `https://motionsites.ai` —  the card with that title 
 | digital-experiences | Digital Experiences | Landing Page | hero | 8994 | scroll-reveal, word-stagger, blur-fade, framer-motion, liquid-glass |
 | digitwist-hero | Digitwist AI Builder | SaaS | hero | 6001 | video-bg, framer-motion, liquid-glass |
 | dot-hero | Dot | Hero Section | hero | 3871 | video-bg, framer-motion |
-| duolingo-styleguide-hero | Duolingo Styleguide | Hero Section | hero | 10777 | — |
+| duolingo-styleguide-hero | Duolingo Styleguide | Hero Section | hero | 10777 | — |
 | equilibrium | Equilibrium | Hero | hero | 4787 | video-bg, liquid-glass |
 | fun-404-page | Fun 404 Page | Education Website | hero | 6085 | video-bg, liquid-glass |
 | halo-usd-landing | USD Halo | Landing Page | hero | 8531 | video-bg, marquee, liquid-glass |
@@ -124,7 +124,7 @@ Each row corresponds to `https://motionsites.ai` —  the card with that title 
 | intelligent-operations | Intelligent Operations | Agency | hero | 10447 | video-bg, scroll-scrub-video, scroll-reveal, canvas-raf, liquid-glass |
 | intelligentx | IntelligentX | Hero | hero | 4182 | video-bg, framer-motion, liquid-glass, mobile-drawer |
 | interactive-discovery | Interactive Discovery | Hero | hero | 6894 | blur-fade, spotlight-mask, magnetic-hover, css-entrance, canvas-raf, liquid-glass, mobile-drawer, reduced-motion |
-| luminex-hero | Luminex | Hero Section | hero | 162 | — |
+| luminex-hero | Luminex | Hero Section | hero | 162 | — |
 | mind-body-healing | Mind-Body Healing | Medicine | hero | 5232 | video-bg, liquid-glass |
 | mindloop-landing | Mindloop Landing | Landing Page | hero | 7242 | video-bg, scroll-reveal, word-stagger, framer-motion, liquid-glass |
 | modern-agency | Modern Agency | Agency | hero | 10347 | video-bg, liquid-glass |
@@ -163,7 +163,7 @@ Each row corresponds to `https://motionsites.ai` —  the card with that title 
 | talent-collective | Talent Collective | Agency | hero | 9583 | css-entrance, infinite-carousel |
 | taskly-hero | Taskly | Hero Section | hero | 2465 | video-bg, liquid-glass |
 | tech-forward | Tech-Forward | Hero | hero | 3400 | framer-motion |
-| transform-data-hero | Transform Data | Hero Section | hero | 3605 | — |
+| transform-data-hero | Transform Data | Hero Section | hero | 3605 | — |
 | trustflow | TrustFlow | Finance | hero | 6275 | canvas-raf, liquid-glass |
 | vaultshield | VaultShield | Hero | hero | 4734 | video-bg, framer-motion, liquid-glass, mobile-drawer |
 | velorah-hero | Velorah | Agency | hero | 3788 | video-bg, css-entrance, liquid-glass |
@@ -187,7 +187,7 @@ Each row corresponds to `https://motionsites.ai` —  the card with that title 
 | place-saver | Place Saver | Travel | mobile | 8226 | video-bg, blur-fade, reduced-motion |
 | travel-journal | Travel Journal | Travel | mobile | 5151 | liquid-glass |
 | wellness-companion | Wellness Companion | Wellness | mobile | 4095 | liquid-glass |
-| price-calculator | Price Calculator | SaaS | pricing | 3168 | — |
+| price-calculator | Price Calculator | SaaS | pricing | 3168 | — |
 | rocket-pricing | Rocket Pricing | Pricing | pricing | 8841 | scroll-reveal, spotlight-mask, framer-motion, liquid-glass |
 | arceage-stats | Arceage Stats | Stats | stats | 7826 | video-bg, scroll-reveal, char-scrub-text, typewriter, counter, spotlight-mask, framer-motion |
 | radial-diagram | Radial Diagram | Testimonials | testimonials | 5364 | scroll-reveal, framer-motion |

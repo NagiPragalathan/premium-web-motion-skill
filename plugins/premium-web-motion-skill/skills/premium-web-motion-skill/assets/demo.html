@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aster — The Next Layer of Intelligence</title>
+<title>Aster — The Next Layer of Intelligence</title>
 
 <!-- Arm the entrance BEFORE the stylesheet. With JS off, nothing is armed and the
-     finished page renders statically — that is the entire no-JS story. -->
+     finished page renders statically — that is the entire no-JS story. -->
 <script>
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches
       && typeof Element.prototype.animate === 'function') {
@@ -24,7 +24,7 @@
 
 <style>
 /* ==========================================================================
-   Demo page — everything below is ordinary design work. All motion comes
+   Demo page — everything below is ordinary design work. All motion comes
    from motion.css / motion.js. This is what the token system looks like
    when it is actually dressed.
    ========================================================================== */
@@ -58,7 +58,7 @@ h1, h2, h3, p { margin: 0; }
 /* ---------------------------------------------------------------- stage -- */
 /* No licensed video ships with this skill, so the plate is built in CSS:
    a slow-drifting radial field + grain + vignette. Swap `.plate` for
-   <video class="plate-video" autoplay muted loop playsinline poster="⬦">
+   <video class="plate-video" autoplay muted loop playsinline poster="hero-poster.jpg">
    and the rest of the page is unchanged. */
 @property --x1 { syntax: '<percentage>'; initial-value: 20%; inherits: false; }
 @property --y1 { syntax: '<percentage>'; initial-value: 30%; inherits: false; }
@@ -83,7 +83,7 @@ h1, h2, h3, p { margin: 0; }
 @keyframes drift3 { 0%,100% { --x3: 55%; --y3: 82%; } 50% { --x3: 42%; --y3: 68%; } }
 @media (prefers-reduced-motion: reduce) { .plate { animation: none; } }
 
-/* the nine-stop bottom fade — the detail that separates a premium stage from a template */
+/* the nine-stop bottom fade — the detail that separates a premium stage from a template */
 .plate::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background:
@@ -194,7 +194,7 @@ h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; let
   font-size: clamp(22px, 3vw, 40px); font-weight: 300; letter-spacing: -.035em;
   color: rgba(255,255,255,.26); white-space: nowrap;
 }
-.band span::after { content: '—'; margin-left: 60px; color: rgba(255,255,255,.12); }
+.band span::after { content: '—'; margin-left: 60px; color: rgba(255,255,255,.12); }
 
 /* footer */
 footer {
@@ -245,13 +245,13 @@ footer {
   </h1>
 
   <p class="sub" data-anim="rise" style="--d:740ms;--rise:10px;--dur:620ms">
-    One infrastructure surface for building, shipping and scaling AI systems —
+    One infrastructure surface for building, shipping and scaling AI systems —
     with the observability, rollback and cost control you already expect from everything else.
   </p>
 
   <div class="actions">
     <a class="pill m-press m-hover-bright" href="#" data-anim="card" style="--d:960ms;--dur:560ms" data-magnetic>Start building</a>
-    <a class="ghost m-hover-dim" href="#platform" data-anim="rise" style="--d:1020ms;--rise:8px;--dur:560ms">View architecture — </a>
+    <a class="ghost m-hover-dim" href="#platform" data-anim="rise" style="--d:1020ms;--rise:8px;--dur:560ms">View architecture →</a>
   </div>
 
   <div class="trust" data-anim="fade" style="--d:340ms;--dur:1100ms">
@@ -316,7 +316,7 @@ footer {
 
 <footer>
   <span data-scramble="ASTER / INFRASTRUCTURE FOR APPLIED INTELLIGENCE"></span>
-  <span>© 2026 — built with premium-web-motion-skill</span>
+  <span>© 2026 — built with premium-web-motion-skill</span>
 </footer>
 
 <script src="motion.js"></script>

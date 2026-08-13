@@ -64,7 +64,7 @@ animate={{ filter: 'blur(0px)',  opacity: 1, y: 0 }}
 transition={{ duration: 0.8, ease: 'easeOut' }}
 ```
 
-⚠ Animated `filter: blur()` on large text is GPU-expensive. Keep it to headline-sized elements,
+**Cost warning.** Animated `filter: blur()` on large text is GPU-expensive. Keep it to headline-sized elements,
 never a paragraph grid.
 
 ---

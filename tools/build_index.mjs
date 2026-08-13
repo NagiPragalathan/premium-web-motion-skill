@@ -10,7 +10,7 @@ const OUT = path.join(ROOT, 'plugins', 'premium-web-motion-skill', 'skills', 'pr
 // technique -> regexes that reliably indicate the prompt teaches it
 const TECHNIQUES = {
   'video-bg': [/autoplay[^.]{0,40}loop|muted[,\s]+loop|looping (?:cloudfront|background) video|plate-video/i],
-  'scroll-scrub-video': [/scroll.{0,20}scrub|scrub.{0,20}video|scroll.{0,15}(?:maps|— ).{0,15}video timeline/i],
+  'scroll-scrub-video': [/scroll.{0,20}scrub|scrub.{0,20}video|scroll.{0,15}(?:maps|→).{0,15}video timeline/i],
   'sticky-cinema': [/position: ?sticky[\s\S]{0,200}100vh|cinema-scroll|sticky stage|pinned stage/i],
   'parallax': [/parallax|useTransform\(scrollYProgress|different speed than the background/i],
   'scroll-reveal': [/IntersectionObserver|whileInView|useInView|scroll-triggered|enters? (?:the )?viewport/i],
@@ -65,17 +65,17 @@ for (const r of rows) for (const t of r.tags) {
 }
 
 const md = [];
-md.push('# Component index — 144 free MotionSites prompts');
+md.push('# Component index — 144 free MotionSites prompts');
 md.push('');
 md.push('Every free prompt on motionsites.ai, tagged with the motion techniques its spec actually');
 md.push('demonstrates. Use this two ways:');
 md.push('');
-md.push('1. **"Which reference case teaches X?"** —  jump to the reverse lookup below.');
-md.push('2. **"What does prompt Y contain?"** —  find it in the full table.');
+md.push('1. **"Which reference case teaches X?"** → jump to the reverse lookup below.');
+md.push('2. **"What does prompt Y contain?"** → find it in the full table.');
 md.push('');
-md.push('Each row corresponds to `https://motionsites.ai` —  the card with that title —  *Copy prompt*.');
+md.push('Each row corresponds to `https://motionsites.ai` → the card with that title → *Copy prompt*.');
 md.push('');
-md.push('## Reverse lookup — technique —  best reference cases');
+md.push('## Reverse lookup — technique → best reference cases');
 md.push('');
 md.push('| Technique | Count | Reference cases (richest first) |');
 md.push('| --- | --- | --- |');
@@ -89,7 +89,7 @@ md.push('');
 md.push('| Prompt id | Title | Category | Archetype | Size | Techniques |');
 md.push('| --- | --- | --- | --- | --- | --- |');
 for (const r of rows.sort((a, b) => (a.type || '').localeCompare(b.type || '') || a.id.localeCompare(b.id))) {
-  md.push(`| ${r.id} | ${r.title} | ${r.category} | ${r.type} | ${r.chars} | ${r.tags.join(', ') || '—'} |`);
+  md.push(`| ${r.id} | ${r.title} | ${r.category} | ${r.type} | ${r.chars} | ${r.tags.join(', ') || '—'} |`);
 }
 
 fs.mkdirSync(path.dirname(OUT), { recursive: true });

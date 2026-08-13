@@ -102,7 +102,7 @@ Simplest, no JS beyond the guard. Best for single-file HTML builds.
 <a    class="cta   anim anim-rise" style="--d:960ms; --rise:8px"></a>
 ```
 
-### ⚠ The `fill-mode` trap
+### The `fill-mode` trap
 
 `forwards` and `both` leave the final `transform` applied to the element **permanently**. A
 non-`none` transform creates a containing block, which **silently disables `backdrop-filter` on

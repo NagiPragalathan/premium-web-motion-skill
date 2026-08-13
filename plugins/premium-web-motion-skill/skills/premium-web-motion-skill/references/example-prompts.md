@@ -160,6 +160,9 @@ DO NOT
 - No overlay or sticker on the video except the measured bottom fade
 - No entrance animation on the video plate
 - No second section — the first viewport IS the deliverable
+- NO emoji anywhere: copy, headings, buttons, alt text, <title>, or code comments. Icons, if any,
+  are inline SVG at stroke-width 1.5 in currentColor
+- No exclamation marks and no hype words in the copy. Straight quotes are a defect: use ' and "
 - Single HTML file; works on desktop and mobile
 
 Build it so a 1487×1058 desktop screenshot matches this layout to the pixel, with the MP4
@@ -293,6 +296,10 @@ ACCEPTANCE CRITERIA — scrubbing 3700px must produce, in order:
 
 Under prefers-reduced-motion: values snap instead of lerping and layer transitions are disabled.
 The composition still scrubs — it just loses inertia. Do NOT disable the rig entirely.
+
+DO NOT
+- No emoji anywhere in the panels, nav, alt text or comments. Nav affordances are inline SVG.
+- No scroll-indicator mouse glyph, no "scroll down" arrow emoji, no exclamation marks in copy.
 ````
 
 ---
@@ -325,6 +332,11 @@ Entrance: opacity 0 → 1, translateY(8px) → 0, scale(.985) → 1,
 
 prefers-reduced-motion: reduce → no magnetic, no entrance, hover is a plain
 background-color change. Everything else unchanged.
+
+DO NOT
+- No emoji or pictograph in or beside the label. If the button needs an arrow, it is an inline
+  SVG chevron at stroke-width 1.5 in currentColor, 16px, with the label text unchanged.
+- No exclamation mark in the label. "Get started", not "Get started!".
 ````
 
 ---

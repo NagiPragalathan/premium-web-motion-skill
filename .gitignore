@@ -4,6 +4,11 @@
 corpus/
 motionsites_free_prompts.json
 
+# Local-only source-case library. Installed into the skill so it can read a real
+# reference case verbatim, but never published for the same reason as corpus/.
+# The skill detects its absence and falls back to the distilled references.
+plugins/premium-web-motion-skill/skills/premium-web-motion-skill/references/source-cases/
+
 # Playwright / tooling output
 .playwright-mcp/
 node_modules/

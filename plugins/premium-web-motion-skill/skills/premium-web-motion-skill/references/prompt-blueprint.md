@@ -208,8 +208,15 @@ The negative list. Non-optional. This is what stops the model padding.
 - Video is an edge-to-edge background plane, not an inset media card.
 - No overlays or stickers on the video except the measured edge fades.
 - White fully-rounded pills for primary CTAs only; ghost text for secondary.
+- NO emoji anywhere: not in copy, headings, buttons, alt text, title, or code comments.
+  Icons are inline SVG at stroke-width 1.5 in currentColor. Never a pictograph as an icon.
+- No exclamation marks in UI copy. No hype words (revolutionary, supercharge, effortlessly, 10x).
 - Single HTML file; works on desktop and mobile.
 ```
+
+The two emoji lines are **mandatory in every prompt this skill writes**, at every scale. Downstream
+builders (v0, Lovable, Bolt, Figma Make) default to emoji icons and exclamation-mark copy unless
+told otherwise, and a single sparkle in a feature card undoes the rest of the spec.
 
 Close with the acceptance sentence:
 
@@ -238,6 +245,8 @@ looping behind the left typography column and the four gray marks in the bottom 
 - Options or alternatives: *"or you could use GSAP"*. Pick one. State it.
 - Deferred decisions: *"choose an appropriate delay"*. You choose. Now.
 - Explanations of why a technique works — the model doesn't need convincing, it needs values.
+- Emoji, in the prompt or in the copy it specifies. The prompt is a spec document; write it like
+  one. Section markers are plain headings and dashes, not pictographs.
 
 ---
 
@@ -344,3 +353,5 @@ Before handing over a spec-prompt:
 - [ ] `DO NOT` section present and specific to this design
 - [ ] Acceptance sentence at the end
 - [ ] Zero instances of "smooth", "subtle", "modern", or "appropriate"
+- [ ] The `DO NOT` section carries the no-emoji and no-emoji-as-icon lines
+- [ ] Zero emoji in the prompt itself

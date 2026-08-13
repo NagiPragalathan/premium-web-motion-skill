@@ -1,10 +1,10 @@
 /* ============================================================================
-   premium-web-motion-skill — drop-in stylesheet
+   premium-web-motion-skill — drop-in stylesheet
    Tokens, keyframes, utilities and surfaces distilled from the MotionSites corpus.
    Pairs with motion.js. Zero dependencies. Works standalone or alongside Tailwind.
 
    Usage:
-     <script>  // in <head>, BEFORE this stylesheet — arms the entrance
+     <script>  // in <head>, BEFORE this stylesheet — arms the entrance
        if (!matchMedia('(prefers-reduced-motion: reduce)').matches
            && typeof Element.prototype.animate === 'function') {
          document.documentElement.classList.add('entrance-pending');
@@ -18,7 +18,7 @@
 
 /* ---------------------------------------------------------------- tokens -- */
 :root {
-  /* easing — four curves cover everything */
+  /* easing — four curves cover everything */
   --ease-out-expo:     cubic-bezier(0.16, 1, 0.30, 1);    /* the default */
   --ease-out-quint:    cubic-bezier(0.22, 1, 0.36, 1);    /* soft arrival, large elements */
   --ease-out-quad:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -80,23 +80,23 @@
 @keyframes m-photo-in  { from { opacity: 0; transform: translateY(80px) scale(1.03); }
                          to   { opacity: 1; transform: none; } }
 
-/* the signature headline move — parent needs .m-line-mask */
+/* the signature headline move — parent needs .m-line-mask */
 @keyframes m-line-reveal { from { transform: translate3d(0, 110%, 0) skewY(2deg); }
                            to   { transform: translate3d(0, 0, 0) skewY(0deg); } }
 
-/* playful — one element per page, maximum */
+/* playful — one element per page, maximum */
 @keyframes m-word-pop  { 0%   { opacity: 0; transform: translateY(60px) scale(.7) rotate(-4deg);
                                 filter: blur(8px); }
                          100% { opacity: 1; transform: none; filter: blur(0); } }
 
-/* clip-path wipes — reads as DRAWN where a fade reads as LOADED.
+/* clip-path wipes — reads as DRAWN where a fade reads as LOADED.
    Compositor-friendly, but never put clip-path on an element with a box-shadow. */
 @keyframes m-wipe-right { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
 @keyframes m-wipe-up    { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
 @keyframes m-type-unmask{ from { opacity: 0; transform: translateY(16px); clip-path: inset(0 0 96% 0); }
                           to   { opacity: 1; transform: none; clip-path: inset(0 0 0 0); } }
 
-/* splash curtain — note the slight negative overshoot in the corpus easing */
+/* splash curtain — note the slight negative overshoot in the corpus easing */
 @keyframes m-splash-top    { from { transform: translateY(0); } to { transform: translateY(-100%); } }
 @keyframes m-splash-bottom { from { transform: translateY(0); } to { transform: translateY(100%); } }
 @keyframes m-splash-hide   { to { opacity: 0; visibility: hidden; } }
@@ -118,7 +118,7 @@
 
 /* ------------------------------------------------------ entrance system -- */
 /* First-frame states. Only applied while the page is armed, so the finished
-   page never flashes — and with JS off, nothing is armed and all is visible. */
+   page never flashes — and with JS off, nothing is armed and all is visible. */
 .entrance-pending [data-anim] { opacity: 0; }
 .entrance-pending [data-anim="line"] { opacity: 1; transform: translate3d(0, 110%, 0) skewY(2deg); }
 
@@ -183,7 +183,7 @@
 
 /* --------------------------------------------------------------- loops --- */
 .m-float  { animation: m-float var(--speed, 3s) ease-in-out infinite; }
-/* video idle bob — the constant scale(1.03) stops the plate's edges entering frame */
+/* video idle bob — the constant scale(1.03) stops the plate's edges entering frame */
 .m-bob    { animation: m-bob var(--speed, 3s) ease-in-out infinite; }
 .m-pulse  { animation: m-pulse var(--speed, 2s) ease-in-out infinite; }
 .m-blink  { animation: m-blink 1s step-end infinite; }  /* step-end: a fading caret looks broken */
@@ -206,7 +206,7 @@
   border-radius: 20px;
 }
 
-/* The gradient stroke that fades along each edge — a real `border` cannot do this.
+/* The gradient stroke that fades along each edge — a real `border` cannot do this.
    Two masks, XOR'd: one covers the element, one the content box; only the padding
    ring survives, so the gradient renders as a border. This is the corpus signature. */
 @supports ((-webkit-mask-composite: xor) or (mask-composite: exclude)) {
@@ -229,7 +229,7 @@
   }
 }
 
-/* Progressive blur — a band that gradually goes out of focus, instead of a hard scrim.
+/* Progressive blur — a band that gradually goes out of focus, instead of a hard scrim.
    Stack two with increasing blur and shorter masks for a true depth-of-field ramp. */
 .m-progressive-blur {
   position: absolute; inset-inline: 0; bottom: 0; height: var(--pb-height, 178px);
@@ -240,7 +240,7 @@
           mask-image: linear-gradient(to top, #000 0%, transparent 100%);
 }
 
-/* Specular sheen — fire ONCE at the end of the entrance. Looping it is a cliché. */
+/* Specular sheen — fire ONCE at the end of the entrance. Looping it is a cliché. */
 .m-sheen { position: relative; overflow: hidden; }
 .m-sheen::after {
   content: ''; position: absolute; top: 0; bottom: 0; width: 40%; pointer-events: none;
@@ -262,13 +262,13 @@
                    object-fit: cover; pointer-events: none; }
 .m-plate::after {
   content: ''; position: absolute; inset: 0; pointer-events: none;
-  /* nine stops, not three — a three-stop fade shows a visible band */
+  /* nine stops, not three — a three-stop fade shows a visible band */
   background: linear-gradient(to bottom,
     rgba(5,5,5,0)    78.8%, rgba(5,5,5,.23) 79.6%, rgba(5,5,5,.45) 81.4%,
     rgba(5,5,5,.75)  83.3%, rgba(5,5,5,.84) 85.2%, rgba(5,5,5,.888) 88%,
     rgba(5,5,5,.905) 91%,   rgba(5,5,5,.96) 95%,   var(--stage) 100%);
 }
-/* pointer spotlight — motion.js writes --mx / --my */
+/* pointer spotlight — motion.js writes --mx / --my */
 .m-spotlight::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%),

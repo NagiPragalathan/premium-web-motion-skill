@@ -1,5 +1,5 @@
 /* ============================================================================
-   premium-web-motion-skill — drop-in runtime
+   premium-web-motion-skill — drop-in runtime
    Zero dependencies. Pairs with motion.css.
 
      <script src="motion.js" defer></script>
@@ -126,7 +126,7 @@
   }
 
   /* ---------------------------------------------------------- parallax --- */
-  /* <div data-parallax="-120">  —  travels +120px to -120px across the viewport.
+  /* <div data-parallax="-120">  → travels +120px to -120px across the viewport.
      Far layers get the larger number; near layers the smaller. */
   function parallax(opts) {
     opts = opts || {};
@@ -157,7 +157,7 @@
   }
 
   /* ---------------------------------------------- pointer parallax / spot -- */
-  /* Writes --mx/--my (percent, for .m-spotlight) and --px/--py (-0.5⬦0.5,
+  /* Writes --mx/--my (percent, for .m-spotlight) and --px/--py (-0.5 to 0.5,
      for layered pointer parallax) on the target element. */
   function pointer(opts) {
     opts = opts || {};
@@ -260,14 +260,14 @@
     var duration = opts.duration || 1500;
 
     var render = function (v) { el.textContent = prefix + v.toFixed(decimals) + suffix; };
-    render(0);                                   // never render empty — prevents layout shift
+    render(0);                                   // never render empty — prevents layout shift
     if (reduced()) return render(value);
 
     var start = null;
     function frame(ts) {
       if (start === null) start = ts;
       var t = clamp((ts - start) / duration);
-      var eased = 1 - Math.pow(1 - t, 3);        // easeOutCubic — linear looks like a progress bar
+      var eased = 1 - Math.pow(1 - t, 3);        // easeOutCubic — linear looks like a progress bar
       render(value * eased);
       if (t < 1) global.requestAnimationFrame(frame);
     }
@@ -301,7 +301,7 @@
         for (var i = 0; i < text.length; i++) {
           if (text[i] === ' ') { out += ' '; continue; }
           if (i < cursor) out += text[i];
-          // random noise only in a 3-char window ahead of the cursor — a wider
+          // random noise only in a 3-char window ahead of the cursor — a wider
           // window reads as TV static rather than a decode
           else if (i < cursor + 3) out += SCRAMBLE_CHARS[(Math.random() * SCRAMBLE_CHARS.length) | 0];
         }
