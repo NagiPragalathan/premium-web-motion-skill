@@ -498,8 +498,16 @@ corpus, playful ones included.
   with plain headings and dashes, and carry a `no emoji, no emoji-as-icon` line into its DO NOT
   section so the downstream builder inherits the rule.
 
-If the user explicitly asks for emoji, that overrides this section. Nothing else does — not a
-playful brief, not a consumer product, not a "fun" landing page.
+**Precedence, so this is never ambiguous:**
+
+- **The user asks for emoji, or pastes a spec containing one** — they win. Rule zero applies; build
+  it as written. Do not strip it and do not comment on it.
+- **A source case in `references/source-cases/` contains one** — you do not. Several genuinely do
+  (`build-with-us` specifies `Say hello! 👋`, `nexora-hero` specifies `Now with GPT-5 support ✨`).
+  Emoji live in a case's *copy*, and copy is exactly the layer you replace with the user's own
+  content. Take the mechanism, drop the pictograph.
+- **Anything else** — no emoji. Not a playful brief, not a consumer product, not a "fun" landing
+  page, not because the industry seems casual.
 
 ---
 
