@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aster — The Next Layer of Intelligence</title>
+
+<!-- Arm the entrance BEFORE the stylesheet. With JS off, nothing is armed and the
+     finished page renders statically — that is the entire no-JS story. -->
+<script>
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches
+      && typeof Element.prototype.animate === 'function') {
+    document.documentElement.classList.add('entrance-pending');
+    window.__entranceFallback = setTimeout(function () {
+      document.documentElement.classList.remove('entrance-pending');
+    }, 3500);
+  }
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="motion.css">
+
+<style>
+/* ==========================================================================
+   Demo page — everything below is ordinary design work. All motion comes
+   from motion.css / motion.js. This is what the token system looks like
+   when it is actually dressed.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --stage:  #050505;
+  --ink:    #fafafa;
+  --muted:  #a7a6a6;
+  --nav:    #b6b5b5;
+  --line:   rgba(255,255,255,.10);
+  --accent: #d8ff3e;
+  --gutter: clamp(20px, 5vw, 72px);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--stage);
+  color: var(--ink);
+  font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p { margin: 0; }
+
+/* ---------------------------------------------------------------- stage -- */
+/* No licensed video ships with this skill, so the plate is built in CSS:
+   a slow-drifting radial field + grain + vignette. Swap `.plate` for
+   <video class="plate-video" autoplay muted loop playsinline poster="⬦">
+   and the rest of the page is unchanged. */
+@property --x1 { syntax: '<percentage>'; initial-value: 20%; inherits: false; }
+@property --y1 { syntax: '<percentage>'; initial-value: 30%; inherits: false; }
+@property --x2 { syntax: '<percentage>'; initial-value: 78%; inherits: false; }
+@property --y2 { syntax: '<percentage>'; initial-value: 22%; inherits: false; }
+@property --x3 { syntax: '<percentage>'; initial-value: 55%; inherits: false; }
+@property --y3 { syntax: '<percentage>'; initial-value: 82%; inherits: false; }
+
+.plate {
+  position: absolute; inset: 0; overflow: hidden; z-index: 0;
+  background:
+    radial-gradient(52vw 52vw at var(--x1) var(--y1), rgba(96,132,255,.34), transparent 62%),
+    radial-gradient(46vw 46vw at var(--x2) var(--y2), rgba(216,255,62,.13), transparent 60%),
+    radial-gradient(60vw 60vw at var(--x3) var(--y3), rgba(255,86,120,.16), transparent 64%),
+    #050505;
+  /* deliberately mismatched periods so the composite never visibly repeats */
+  animation: drift1 19s ease-in-out infinite, drift2 23s ease-in-out infinite,
+             drift3 17s ease-in-out infinite;
+}
+@keyframes drift1 { 0%,100% { --x1: 20%; --y1: 30%; } 50% { --x1: 34%; --y1: 46%; } }
+@keyframes drift2 { 0%,100% { --x2: 78%; --y2: 22%; } 50% { --x2: 64%; --y2: 38%; } }
+@keyframes drift3 { 0%,100% { --x3: 55%; --y3: 82%; } 50% { --x3: 42%; --y3: 68%; } }
+@media (prefers-reduced-motion: reduce) { .plate { animation: none; } }
+
+/* the nine-stop bottom fade — the detail that separates a premium stage from a template */
+.plate::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to bottom,
+      rgba(5,5,5,0) 44%, rgba(5,5,5,.23) 58%, rgba(5,5,5,.45) 68%,
+      rgba(5,5,5,.75) 78%, rgba(5,5,5,.84) 84%, rgba(5,5,5,.888) 89%,
+      rgba(5,5,5,.905) 93%, rgba(5,5,5,.96) 97%, var(--stage) 100%),
+    radial-gradient(ellipse 120% 90% at 50% 45%, transparent 38%, rgba(5,5,5,.72) 100%);
+}
+.grain {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  opacity: .04; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------------------------------------------------------------- chrome -- */
+.topbar {
+  position: fixed; inset: 0 0 auto 0; z-index: 40;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 22px var(--gutter);
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -.02em; font-size: 16px; }
+.brand svg { display: block; }
+.links { display: flex; gap: 30px; font-size: 14px; color: var(--nav); }
+.pill {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 42px; padding: 0 22px; border-radius: 999px;
+  background: #fff; color: #050505; font-size: 14px; font-weight: 500;
+  border: 0; cursor: pointer; white-space: nowrap;
+}
+.ghost { font-size: 14px; font-weight: 500; color: #fff; opacity: .9; }
+
+/* ------------------------------------------------------------------ hero -- */
+.hero {
+  position: relative; min-height: 100svh; z-index: 2;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 140px var(--gutter) clamp(48px, 9vh, 96px);
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 9px; width: fit-content;
+  margin-bottom: 26px; padding: 7px 15px 7px 11px; border-radius: 999px;
+  font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(255,255,255,.72);
+}
+.eyebrow i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+
+h1 {
+  font-size: clamp(42px, 7.4vw, 104px);
+  line-height: .98; font-weight: 400; letter-spacing: -.045em;
+  max-width: 15ch;
+}
+h1 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; letter-spacing: -.02em; }
+
+.sub {
+  margin-top: 30px; max-width: 46ch;
+  font-size: clamp(15px, 1.35vw, 19px); line-height: 1.62; color: var(--muted);
+}
+.actions { margin-top: 40px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+
+.trust {
+  margin-top: clamp(56px, 11vh, 128px);
+  display: flex; align-items: center; gap: clamp(28px, 4vw, 60px); flex-wrap: wrap;
+  font-size: 13px; color: rgba(255,255,255,.34);
+}
+.trust b { font-weight: 600; letter-spacing: -.01em; font-size: 15px; color: rgba(255,255,255,.55); }
+
+/* --------------------------------------------------------------- section -- */
+.section { position: relative; z-index: 2; padding: clamp(88px, 14vh, 176px) var(--gutter); }
+.section-head { max-width: 62ch; }
+.section h2 {
+  font-size: clamp(30px, 4.4vw, 58px); font-weight: 400;
+  letter-spacing: -.035em; line-height: 1.04;
+}
+.section h2 em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; }
+.section-head p { margin-top: 20px; font-size: 16px; line-height: 1.65; color: var(--muted); max-width: 48ch; }
+
+.grid {
+  margin-top: clamp(40px, 6vh, 72px);
+  display: grid; gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.card {
+  position: relative; padding: 28px; border-radius: 20px; min-height: 232px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  transition: border-color 200ms var(--ease-standard), background 200ms var(--ease-standard);
+}
+.card .k { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.card h3 { margin-top: 14px; font-size: 21px; font-weight: 500; letter-spacing: -.02em; }
+.card p { margin-top: 10px; font-size: 14.5px; line-height: 1.6; color: rgba(255,255,255,.52); }
+.card .n { font-size: clamp(34px, 4vw, 46px); font-weight: 300; letter-spacing: -.04em; }
+@media (hover: hover) and (pointer: fine) {
+  .card:hover { border-color: rgba(255,255,255,.22); background: rgba(255,255,255,.08); }
+}
+
+/* stat band */
+.stats {
+  margin-top: 18px; display: grid; gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+.stat { padding: 26px 28px; border-radius: 20px; }
+.stat .n { font-size: clamp(32px, 3.6vw, 44px); font-weight: 300; letter-spacing: -.04em; }
+.stat .l { margin-top: 6px; font-size: 13px; color: rgba(255,255,255,.44); }
+
+/* marquee band */
+.band { position: relative; z-index: 2; padding: 26px 0; border-block: 1px solid var(--line); }
+.band .m-marquee__track { gap: 60px; align-items: center; }
+.band span {
+  font-size: clamp(22px, 3vw, 40px); font-weight: 300; letter-spacing: -.035em;
+  color: rgba(255,255,255,.26); white-space: nowrap;
+}
+.band span::after { content: '—'; margin-left: 60px; color: rgba(255,255,255,.12); }
+
+/* footer */
+footer {
+  position: relative; z-index: 2;
+  padding: 56px var(--gutter); border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+  font-size: 13px; color: rgba(255,255,255,.34);
+}
+
+/* --------------------------------------------------------------- mobile --- */
+@media (max-width: 860px) {
+  .links, .topbar .pill { display: none; }
+  .hero { padding-top: 120px; }
+  .actions { gap: 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="plate" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="brand" href="#" data-anim="rise" style="--d:60ms;--rise:7px;--dur:580ms">
+    <svg width="20" height="26" viewBox="0 0 20 26" fill="none" aria-hidden="true">
+      <path d="M13 0v10h7v5L6 26V15H0v-5z" fill="#fafafa"/>
+    </svg>
+    Aster
+  </a>
+  <nav class="links" aria-label="Primary">
+    <a href="#platform" data-anim="rise" style="--d:130ms;--rise:6px;--dur:480ms">Platform</a>
+    <a href="#numbers"  data-anim="rise" style="--d:175ms;--rise:6px;--dur:480ms">Numbers</a>
+    <a href="#platform" data-anim="rise" style="--d:220ms;--rise:6px;--dur:480ms">Docs</a>
+    <a href="#platform" data-anim="rise" style="--d:265ms;--rise:6px;--dur:480ms">Contact</a>
+  </nav>
+  <a class="pill m-press m-hover-bright" href="#" data-anim="card" style="--d:220ms;--dur:520ms" data-magnetic>Get started</a>
+</header>
+
+<main class="hero">
+  <span class="eyebrow m-glass" data-anim="rise" style="--d:180ms;--rise:8px;--dur:520ms">
+    <i></i> Now in general availability
+  </span>
+
+  <h1>
+    <span class="m-line-mask"><span data-anim="line" style="--d:300ms;--dur:800ms">The next layer</span></span>
+    <span class="m-line-mask"><span data-anim="line" style="--d:440ms;--dur:850ms">of <em>intelligence</em></span></span>
+  </h1>
+
+  <p class="sub" data-anim="rise" style="--d:740ms;--rise:10px;--dur:620ms">
+    One infrastructure surface for building, shipping and scaling AI systems —
+    with the observability, rollback and cost control you already expect from everything else.
+  </p>
+
+  <div class="actions">
+    <a class="pill m-press m-hover-bright" href="#" data-anim="card" style="--d:960ms;--dur:560ms" data-magnetic>Start building</a>
+    <a class="ghost m-hover-dim" href="#platform" data-anim="rise" style="--d:1020ms;--rise:8px;--dur:560ms">View architecture — </a>
+  </div>
+
+  <div class="trust" data-anim="fade" style="--d:340ms;--dur:1100ms">
+    <span>Trusted by teams at</span>
+    <b>Northwind</b><b>Vela</b><b>Apex</b><b>Orbit</b><b>Zeno</b>
+  </div>
+</main>
+
+<section class="band m-marquee" aria-hidden="true">
+  <div class="m-marquee__track" style="--speed:34s">
+    <span>inference</span><span>observability</span><span>rollback</span>
+    <span>evals</span><span>routing</span><span>cost control</span>
+  </div>
+</section>
+
+<section class="section m-spotlight" id="platform">
+  <div class="section-head">
+    <h2 data-reveal style="--rise:24px">Six systems that usually take a year.
+      <em>Already wired together.</em></h2>
+    <p data-reveal style="--d:120ms;--rise:20px">
+      Every layer is independently observable and independently reversible. Nothing here is a
+      black box you have to trust.
+    </p>
+  </div>
+
+  <div class="grid">
+    <article class="card m-glass" data-reveal style="--d:0ms" data-tilt>
+      <div><span class="k">01</span><h3>Instant deploys</h3>
+        <p>Push a model revision and route traffic to it in under four seconds. Roll back in one.</p></div>
+      <div class="n m-nums"><span data-count="3.8" data-decimals="1" data-suffix="s">0</span></div>
+    </article>
+    <article class="card m-glass" data-reveal style="--d:120ms" data-tilt>
+      <div><span class="k">02</span><h3>Composable layers</h3>
+        <p>Retrieval, routing and evals are separate services that speak one protocol.</p></div>
+      <div class="n m-nums"><span data-count="14" data-suffix=" svc">0</span></div>
+    </article>
+    <article class="card m-glass" data-reveal style="--d:240ms" data-tilt>
+      <div><span class="k">03</span><h3>Branch previews</h3>
+        <p>Every pull request gets a full isolated stack with its own traces and its own budget.</p></div>
+      <div class="n m-nums"><span data-count="100" data-suffix="%">0</span></div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="numbers" style="padding-top:0">
+  <h2 data-reveal style="--rise:22px"><em>Measured,</em> not claimed.</h2>
+  <div class="stats">
+    <div class="stat m-glass" data-reveal style="--d:0ms">
+      <div class="n m-nums"><span data-count="1284" data-suffix="+">0</span></div>
+      <div class="l">Production deployments / week</div></div>
+    <div class="stat m-glass" data-reveal style="--d:100ms">
+      <div class="n m-nums"><span data-count="99.98" data-decimals="2" data-suffix="%">0</span></div>
+      <div class="l">Rolling 90-day availability</div></div>
+    <div class="stat m-glass" data-reveal style="--d:200ms">
+      <div class="n m-nums"><span data-count="42" data-suffix="ms">0</span></div>
+      <div class="l">Median routing overhead</div></div>
+    <div class="stat m-glass" data-reveal style="--d:300ms">
+      <div class="n m-nums"><span data-count="61" data-suffix="%">0</span></div>
+      <div class="l">Average inference spend saved</div></div>
+  </div>
+</section>
+
+<footer>
+  <span data-scramble="ASTER / INFRASTRUCTURE FOR APPLIED INTELLIGENCE"></span>
+  <span>© 2026 — built with premium-web-motion-skill</span>
+</footer>
+
+<script src="motion.js"></script>
+</body>
+</html>

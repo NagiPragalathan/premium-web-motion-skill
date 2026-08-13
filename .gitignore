@@ -1,0 +1,10 @@
+# Research corpus — source material scraped from motionsites.ai for analysis.
+# Deliberately NOT published: the skill is the distillation, not a redistribution
+# of another product's prompt library. Regenerate locally with tools/*.mjs.
+corpus/
+motionsites_free_prompts.json
+
+# Playwright / tooling output
+.playwright-mcp/
+node_modules/
+*.log

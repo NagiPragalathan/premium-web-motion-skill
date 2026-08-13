@@ -1,0 +1,23 @@
+{
+  "name": "premium-web-motion-skill",
+  "displayName": "Premium Web Motion",
+  "version": "1.0.0",
+  "description": "Build award-tier animated websites — cinematic hero sections, scroll-driven storytelling, kinetic typography, entrance choreography, liquid-glass surfaces, ambient loops and cursor spotlight reveals — or write the measured spec-prompt that makes another AI build them.",
+  "author": {
+    "name": "nanotom"
+  },
+  "keywords": [
+    "animation",
+    "motion-design",
+    "web-animation",
+    "scroll-animation",
+    "hero-section",
+    "landing-page",
+    "css",
+    "framer-motion",
+    "gsap",
+    "liquid-glass",
+    "kinetic-typography",
+    "prompt-engineering"
+  ]
+}
