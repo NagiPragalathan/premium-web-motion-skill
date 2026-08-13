@@ -1,6 +1,6 @@
 # Kinetic typography
 
-Type is the loudest thing on a premium page, so it gets the most considered motion. Nine
+Type is usually the loudest thing on a page, so it repays careful motion. Nine
 patterns, ranked by how often they earn their place.
 
 **The governing rule:** animate the largest unit that still communicates. Line for headlines,
@@ -11,7 +11,7 @@ paragraph. Per-character animation on a full sentence is the most reliable tell 
 
 ## 1. Line clip reveal — the signature headline move
 
-Text rises from behind its own baseline. This is *the* premium headline animation.
+Text rises from behind its own baseline. This is the most-used headline animation in the corpus.
 
 ```html
 <h1 class="headline">
@@ -225,7 +225,8 @@ translateY(60px) scale(0.7) rotate(-4deg) blur(8px) → bounce overshoot → set
 ```
 
 The only sanctioned overshoot in the system. One element per page, maximum — a headline where
-every word pops is a children's app, not a premium site.
+every word pops is a novelty effect, not typography. Use it when the brief asks for exuberance,
+never as a default.
 
 ---
 
@@ -281,7 +282,7 @@ set `paint-order: stroke fill` so the stroke sits behind the glyph rather than e
 
 Motion cannot rescue bad typesetting.
 
-| Property | Premium value |
+| Property | Corpus value |
 |---|---|
 | Headline tracking | `-0.02em` to `-0.08em` — always negative, tighter as size grows |
 | Headline line-height | `0.95`–`1.12` |

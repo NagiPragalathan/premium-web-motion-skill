@@ -212,7 +212,7 @@ const container = {
 };
 ```
 
-The blur-in variant that reads as expensive:
+The blur-in variant, when the brief wants weight behind the arrival:
 
 ```tsx
 initial={{ filter: 'blur(10px)', opacity: 0, y: 20 }}

@@ -1,6 +1,6 @@
 # The spec-prompt blueprint
 
-How to write a prompt that makes an AI build an award-tier animated page **on the first try**.
+How to write a prompt that makes an AI build the page you actually want **on the first try**.
 
 This is the MotionSites format, reverse-engineered from all 144 free prompts. It is not a
 "creative brief". It is a **measured reconstruction spec** — the difference between "make a

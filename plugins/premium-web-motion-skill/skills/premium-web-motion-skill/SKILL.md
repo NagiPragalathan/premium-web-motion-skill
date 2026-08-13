@@ -1,16 +1,33 @@
 ---
 name: premium-web-motion-skill
-description: Build award-tier animated websites — cinematic hero sections, scroll-driven storytelling, kinetic typography, entrance choreography, liquid-glass surfaces, ambient loops, cursor spotlight reveals, marquees and parallax — or write the measured spec-prompt that makes another AI build them. Use for any request about premium/modern/"agency-grade" web animation, motion design, scroll animations, hero sections, landing-page polish, micro-interactions, page transitions, or turning a design/video reference into an exact buildable spec. Also use when the user pastes a detailed design/motion spec to implement — the skill reproduces a supplied spec verbatim rather than imposing its own defaults. Builds React + Tailwind + Framer Motion in TypeScript, split across files, choosing from ten distinct visual directions. Distilled from all 144 free MotionSites.ai component prompts.
+description: Build well-crafted animated web interfaces in the user's own theme — hero sections, scroll-driven storytelling, kinetic typography, entrance choreography, surfaces, ambient loops, cursor interaction, marquees and parallax — or write the measured spec-prompt that makes another AI build them. Use for any request about web animation, motion design, scroll animations, hero sections, landing-page polish, micro-interactions, page transitions, or turning a design/video reference into an exact buildable spec. Also use when the user pastes a detailed design/motion spec to implement — a supplied spec is reproduced verbatim rather than overridden by defaults. Supplies craft, never a house look: the theme, mood and industry come from the brief. Builds React + Tailwind + Framer Motion in TypeScript, split across files, selecting from a library of 144 real reference cases across ten visual directions.
 ---
 
 # Premium Web Motion
 
-A complete motion system for websites that look like they cost $5,000 a section: the timing
-tokens, the choreography patterns, the scroll rigs, and — most importantly — **the spec-prompt
-format** that turns "make it premium" into a build that lands on the first try.
+A motion and composition system for building web interfaces well: timing tokens, choreography
+patterns, scroll rigs, a library of 144 real reference cases, and the spec-prompt format that
+turns a vague brief into a build that lands on the first try.
 
 Distilled from the full corpus of 144 free MotionSites.ai prompts (1.1M characters of measured
 production specs). Every number in this skill is one that shipped, not one that was invented.
+
+## The theme is the user's, not this skill's
+
+**This skill supplies craft, not taste.** It does not have a look to apply. "Premium" here means
+*executed carefully* — correct timing, real hierarchy, no jank — and never a particular aesthetic.
+
+The theme, mood, industry and personality come **entirely from the user's brief**. A children's
+learning app, a municipal records portal, a metal band's tour page and a B2B invoicing dashboard
+are all built to the same standard of craft and look nothing alike. If the brief says playful,
+build playful. If it says utilitarian and dense, build that — and do not quietly drift it toward
+dark, minimal and cinematic because that reads as expensive.
+
+Never describe the output as premium, luxury, high-end or award-winning to the user, and never
+choose a design decision *because* it signals expense. Choose it because it serves the brief.
+
+Where this skill states an aesthetic preference, it is a **Tier 2 default** — it applies only when
+the user gave you nothing to go on. See "Two tiers of rule" below.
 
 ---
 
@@ -61,18 +78,25 @@ mechanically instead.
 `INDEX.md` organises every case into **disjoint numbered pools** — one direction pool and one
 section pool per case — precisely so selection can be computed.
 
+The order is **survey → decide → apply.** Fit comes first; the arithmetic in step 3 exists only to
+break ties, never to override a case that genuinely suits the brief.
+
 For **each section** you are building:
 
-1. **Form the candidate pool.** Intersect the direction pool (from `design-directions.md`) with the
-   section pool (hero / features / pricing / footer / cta / about / mobile / …). If the
-   intersection is empty or has fewer than three entries, fall back to the section pool alone.
-2. **Compute an offset, don't choose one.** Take the project's brand or product name, sum its
-   character codes, and take that modulo the pool size. Add the section's position on the page
-   (hero 0, second section 1, …). That index is your **primary case**.
-   *This exists so two different projects with the same brief land on different cases. A name is
-   the one input that always differs.*
-3. **Take two more**, at offset `+7` and `+13` within the same pool, wrapping around. These are
-   your **secondary** and **tertiary** cases.
+1. **Survey.** Open `INDEX.md` and read the pool for this section type, plus the pool for the
+   direction the brief implies. Look at the whole pool — titles, signals, tone — not the first few
+   entries. You are looking at what is *available*, not searching for a single answer.
+2. **Decide by fit.** Shortlist every case that genuinely suits **this** application: its content
+   shape, its density, its tone, the interaction it needs. A dense data table and a single-claim
+   landing hero have different candidates. If the brief names a mood, that governs the shortlist.
+   Be honest about fit — a case that merely shares a section type is not a candidate.
+3. **Break ties mechanically.** When several candidates fit equally — which is the normal case —
+   do not take the first. Sum the character codes of the project's brand or product name, add the
+   section's position on the page (hero 0, second section 1, …), and take that modulo the shortlist
+   length. That is your **primary case**. Step `+7` and `+13` through the shortlist, wrapping, for
+   your **secondary** and **tertiary**.
+   *A name is the one input that always differs between projects, so two identical briefs for two
+   different products land on different cases instead of the same "obvious" one.*
 4. **Skip any case already used** anywhere in this page or earlier in this session; advance by one
    until you reach an unused case.
 
@@ -106,7 +130,13 @@ Never take all three layers from one case. The blend is what makes the output ne
 that happen to share a primary case still diverge, because their motion and detail come from
 different places.
 
-6. **Log the picks in your delivery message**, one line:
+6. **Apply to the actual application.** The cases are structural and behavioural evidence, not a
+   theme to inherit. Keep the mechanism, the geometry and the timing; replace everything that
+   belongs to the reference's own brand — palette, fonts, copy, imagery, tone — with what **this**
+   project needs. A case built for a crypto launch can supply the right scroll rig for a hospital
+   intake form; it must not drag its colours or its voice along with it.
+
+7. **Log the picks in your delivery message**, one line:
    *"Sources — hero: `nexora-hero` + `vision-reveal` + `signal-id`; features: `glow-features` +
    `task-engine` + `nike-hover`."* This is what lets you and the user see the rotation working, and
    it is what makes step 4 possible later in the session.
@@ -150,9 +180,12 @@ for the mechanism menu. **Ten builds should look like ten sites, not one site te
 
 ## The one idea (applies only when *you* are choosing the numbers)
 
-**Premium motion is not more animation. It is fewer moves, measured exactly, in one direction.**
+**Good motion is not more animation. It is fewer moves, measured exactly, in one direction.**
 
-Amateur output animates twelve things with default `ease` at `0.3s`. Premium output moves six
+This is a craft principle and applies to every theme — a playful brand and a severe one both
+suffer from unmeasured motion.
+
+Careless output animates twelve things with default `ease` at `0.3s`. Considered output moves six
 things along one decelerating curve, each 60–120ms behind the last, with a blur that resolves
 as they arrive — and then stops. The corpus is unanimous on this: 34 prompts use
 `cubic-bezier(0.16, 1, 0.3, 1)`, 30 use `cubic-bezier(0.22, 1, 0.36, 1)`, and essentially
@@ -274,7 +307,7 @@ the hero cascade is slow and wide.
 | Scale companion | `0.94 → 1` (small) · `0.968 → 1` (card) · `1.03 → 1` (image settle) |
 | Blur companion | `blur(6px)` subtle · `blur(10–12px)` signature · `blur(20px)` dramatic |
 
-### The premium fade (use this, not `opacity`)
+### The composite fade (use this, not `opacity` alone)
 
 ```css
 from { opacity: 0; transform: translateY(24px); filter: blur(6px); }
@@ -283,7 +316,8 @@ to   { opacity: 1; transform: translateY(0);    filter: blur(0);   }
 ```
 
 An opacity-only fade reads as a loading state. Opacity + translate reads as intentional.
-Opacity + translate + blur reads as expensive.
+Opacity + translate + blur reads as deliberate craft. Pick the depth the brief warrants — the
+third layer is not automatically the right answer.
 
 ---
 
@@ -336,7 +370,8 @@ prompts are written in, and it is the order that makes a build reproducible:
 
 1. **Stage** — what fills the first viewport? Video plate / photo / flat color / canvas. Full-bleed
    or inset? What are the fade overlays at its edges?
-2. **Composition** — count the elements. Premium heroes have 5–8 total. Write down what is *not*
+2. **Composition** — count the elements. Sparse heroes run 5–8; dense and editorial ones carry far
+   more, and the reference tells you which this is. Write down what is *not*
    there (no cards, no badges, no stat strip) — the negative list matters as much as the positive.
 3. **Type** — display family + UI family, the two of them. Sizes in `clamp()`. Tracking on the
    headline (almost always negative: `-0.02em` to `-0.08em`).
@@ -377,6 +412,7 @@ Drop-in code:
 |---|---|
 | `assets/motion.css` | Token block + every keyframe in this skill + utility classes + reduced-motion handling. Paste into any project. |
 | `assets/motion.js` | Zero-dependency runtime: reveal observer, smoothed scroll progress, parallax, video scrub, magnetic, spotlight mask, scramble, counter, marquee, drawer. |
+| `assets/demo.html` | **A test page for the runtime, not a template.** It exists to prove `motion.css` and `motion.js` work, in one arbitrary dark cinematic style. Never copy it, never open it as a starting point, and never let its palette, fonts or composition leak into a build. If you want to see the runtime working, serve it — otherwise ignore it. |
 
 ---
 
@@ -410,6 +446,9 @@ not trade a stated value away to get them.
 Apply these **only where the spec, reference or user is silent**. Each is a good bet in a vacuum
 and wrong the instant someone specifies otherwise.
 
+**Every aesthetic statement in this skill lives in this tier.** The user's stated theme outranks
+all of it — including the palette, the type advice and the composition counts below.
+
 - One ambient loop per viewport. *(D7 Neon Night runs two by design. A spec that asks for three
   gets three.)*
 - The hero media is the stage — it does not fade in with the content.
@@ -433,8 +472,9 @@ not append a note explaining that you would have done it differently.
 
 **Characters, copy and tone — no emoji, ever**
 
-This is a hard constraint, not a preference. Emoji are the single fastest way to make an expensive
-page read as a hobby project, and no premium reference in the corpus contains one.
+This is a hard constraint, not a preference. Emoji undercut a considered interface faster than any
+other single choice, and not one of the 144 references contains one — across every theme in the
+corpus, playful ones included.
 
 - **Never emit an emoji or pictograph.** Not in headings, body copy, buttons, nav labels, badges,
   eyebrows, form placeholders, empty states, toasts, error messages, `alt` text, `<title>`,

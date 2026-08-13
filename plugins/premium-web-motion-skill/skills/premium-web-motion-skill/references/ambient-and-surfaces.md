@@ -9,7 +9,7 @@ gradient *and* a marquee is a screensaver. Pick one; make it good.
 
 ---
 
-## 1. The video plate — the default premium stage
+## 1. The video plate — the most common stage (82 of 144 cases)
 
 ### Markup
 
@@ -71,7 +71,7 @@ gradients on `.plate::after`, with hand-tuned stops:
 
 Nine stops on the bottom fade, not three. A three-stop gradient has a visible band where the
 curve changes; the extra stops approximate a perceptual ease. This one detail separates a
-premium video hero from a template.
+considered video hero from a template.
 
 Portrait needs its own, lighter set — a heavy bottom fade on a tall screen eats the whole video:
 
@@ -267,7 +267,7 @@ Without it, browsers step between keyframes instead of tweening.
 
 ## 4. Grain / noise
 
-Kills gradient banding and adds a film quality that reads as expensive.
+Kills gradient banding and adds a film quality.
 
 ```css
 .grain::after {
@@ -301,7 +301,7 @@ Beyond grain, the corpus uses three more full-bleed treatment layers. All are
 ```
 
 **Progressive blur** — a band where the page *gradually* goes out of focus, rather than a hard
-scrim. This is the premium way to seat text over a busy plate:
+scrim. This is the reliable way to seat text over a busy plate:
 ```css
 .progressive-blur {
   position: absolute; inset-inline: 0; bottom: 0; height: 178px;

@@ -18,10 +18,15 @@ The corpus is **not** one aesthetic. Measured across all 144 reference specs:
 If your last three builds were all near-black with Manrope and a video plate, you have been
 sampling one corner of a 144-case space. **Near-black is a direction, not a default.**
 
+**These are not a quality ladder.** No direction here is more "premium" than another — D9 Warm
+Organic is not a lesser D1. They are ten different answers, and the brief decides which is correct.
+A direction chosen because it looks expensive is a direction chosen wrongly.
+
 ## Selection rule (mandatory)
 
 1. **The brief picks the direction.** Industry, audience and mood decide it — a wellness brand and
-   a cybersecurity brand do not get the same page. Match the direction to the content.
+   a cybersecurity brand do not get the same page. Match the direction to the content. If the user
+   stated a theme, that is the answer; this table is only for when they did not.
 2. **When the brief is silent, do not fall to Direction 1.** Choose by the sector table below. If
    the sector is unclear, choose the direction whose *content shape* fits (long copy → editorial;
    a product with states → interface; a single claim → statement).
@@ -57,8 +62,8 @@ sampling one corner of a 144-case space. **Near-black is a direction, not a defa
 
 ## D1 — Cinematic Dark
 
-The one this skill over-uses. Genuinely correct for agencies, studios, portfolios and premium
-launches where footage carries the page.
+The one this skill over-uses. Genuinely correct for agencies, studios, portfolios and product
+launches where footage carries the page. Wrong for most other briefs.
 
 - **Palette** — stage `#050505`, ink `#fafafa`, muted `#a7a6a6`, hairline `rgba(255,255,255,.10)`,
   one accent only. Never `#000`, never pure `#fff` for body copy.

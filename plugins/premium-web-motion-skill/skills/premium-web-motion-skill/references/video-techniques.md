@@ -167,7 +167,7 @@ worse than the drift.
 
 ## 8. Masked and clipped video
 
-The video only shows inside a shape. Cheap, and reads as expensive.
+The video only shows inside a shape. Cheap to render, and visually striking.
 
 **Logo-shaped mask** — an inline SVG path as a data URI:
 ```css

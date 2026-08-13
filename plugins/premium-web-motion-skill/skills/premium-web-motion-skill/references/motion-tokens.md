@@ -128,7 +128,7 @@ blur-in) · `12px` (hero) · `20px` (dramatic portal reveal).
 
 ## Opacity levels
 
-Premium builds use a small opacity scale for hierarchy, not a color scale:
+The corpus builds hierarchy with a small opacity scale rather than a color scale:
 
 ```
 1.00  primary text
